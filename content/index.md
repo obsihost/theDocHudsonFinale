@@ -4,7 +4,7 @@ title: The Last Race
 
 <div style="text-align: center;">
   <img src="Profile-Doc_hudson.webp" alt="Profile Doc" style="width: 50%;"/>
-  <p>دي مجرد كوبايات فاضيه</p>
+  <p>اللي انا شايفه مجرد كوبايات فاضيه</p>
 </div>
 
 - **Embedded**:
