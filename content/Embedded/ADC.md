@@ -20,7 +20,7 @@ graph LR
     D("ADC1: 8 Channels")
     E("Successive Approximation")
     F("Clk <= 4.5 MHz")
-    
+
     A --> B
     B --> C
     B --> D
@@ -40,6 +40,7 @@ graph LR
 3. **Precision**:
    - 10-bit resolution translates to 1024 discrete levels.
    - Ensures fine-grained signal representation.
+
 ## Registers Overview
 
 ### Important Registers
@@ -95,7 +96,7 @@ graph LR
     STAT("ADxSTAT: Status Register")
     INTEN("ADxINTEN: Interrupt Enable Register")
     CHDR("ADxDRy: Channel Data Registers")
-    
+
     R --> CR
     R --> GDR
     R --> STAT
@@ -112,7 +113,7 @@ graph LR
 - Use **ADGDR** and **ADxDR** to read conversion results.
 - Leverage **ADSTAT** for monitoring channel statuses.
 - Enable interrupts via **ADINTEN** for efficient ADC event handling.
-<div style="page-break-after: always;"></div> 
+
 ### Missed Points
 
 #### CLKS Bits (Bits 19:17)
@@ -147,9 +148,9 @@ These additional configurations enhance flexibility, allowing for tailored preci
 | **ADSTAT**  | ADC Status Register                   | **DONE7:0**: Channel completion flags, **OVERRUN7:0**: Overrun indicators, **ADINT**: ADC interrupt flag                                                                         |
 | **ADINTEN** | ADC Interrupt Enable Register         | **EN7:0**: Enable interrupts for channels, **ADGINTEN**: Enable global interrupt for ADC completion                                                                              |
 | **ADxDR**   | ADC Individual Channel Data Registers | **RESULT**: 10-bit conversion result, **DONE**: Conversion completion flag                                                                                                       |
-<div style="page-break-after: always;"></div> 
 
 ### Code Example
+
 example program to read an analog voltage using the LPC2148 microcontroller. The program converts an analog signal from ADC0.1 (pin P0.28) into a digital value and displays the equivalent voltage on an LCD.
 
 ```c
@@ -199,26 +200,37 @@ int main(void) {
 ```
 
 This program demonstrates how to:
+
 - Set up the ADC input pin.
 - Configure the ADC Control Register.
 - Read the digital result and convert it back to voltage.
 - Display the result on an LCD.
-<div style="page-break-after: always;"></div> 
+
 ### General Steps for Programming ADC in LPC2148
+
 The following steps outline the general process for setting up and using the Analog-to-Digital Converter (ADC) in LPC2148:
+
 #### 1. Configure the ADC Control Register (ADxCR)
+
 - Set up the required ADC channel using the **SEL** field.
 - Configure the ADC clock frequency using the **CLKDIV** field to ensure it does not exceed 4.5 MHz.
 - Adjust other parameters such as burst mode, resolution (via **CLKS**), and power settings.
+
 #### 2. Start the Conversion
+
 - Trigger the start of the A/D conversion by writing to the **START** bits in the ADxCR register.
 - Example: Setting **START = 001** initiates an immediate conversion.
+
 #### 3. Monitor the DONE Bit
+
 - Check the **DONE** bit in the respective ADC Data Register (ADxDRy).
 - Wait for this bit to change from `0` to `1`, indicating the conversion is complete.
+
 #### 4. Retrieve the ADC Result
+
 - Read the converted value from the **RESULT** field in ADxDRy.
 - Convert this digital value into an equivalent analog voltage if needed.
+
 ```mermaid
 stateDiagram-v2
     [*] --> ConfigureADC : Initialize ADC

@@ -1,6 +1,7 @@
 ## Introduction to GPIOs
 
 ### What is GPIO?
+
 - **GPIO** stands for **General-Purpose Input/Output**.
 - GPIO pins can be dynamically configured as **input** or **output** during runtime.
 - A group of GPIO pins is collectively referred to as a **port**.
@@ -8,19 +9,23 @@
 ### LPC2148 Microcontroller GPIO Overview
 
 #### Key Features:
+
 - Two 32-bit GPIO ports: **PORT0** and **PORT1**.
 
 #### PORT0:
+
 - **32-bit port**, but:
   - **28 pins** are configurable as general-purpose input/output.
   - **P0.31**: Can only function as an output pin.
   - **P0.24, P0.26, P0.27**: Reserved, not available for use.
 
 #### PORT1:
+
 - **32-bit port**, but:
   - Only **16 pins (P1.16 – P1.31)** are available as general-purpose input/output.
 
 ### Alternate Functions of GPIO Pins
+
 - Many pins in **PORT0** and **PORT1** have alternate functions:
   - Example: **P0.0** can function as:
     - **TXD** (Transmit Data) for UART0
@@ -28,10 +33,12 @@
 - The alternate function is selected using **Pin Function Select Registers**.
 
 ### Note on External Resistors
+
 - **PORT0 pins lack built-in pull-up or pull-down resistors.**
   - External resistors are required to ensure stable behavior and avoid floating states.
 
 ### LPC2148 GPIO Ports
+
 ```mermaid
 graph LR
     A[GPIO Overview] --> B[PORT0: 32-bit]
@@ -43,10 +50,11 @@ graph LR
     B --> H[Alternate Functions Available]
     C --> H
 ```
-<div style="page-break-after: always;"></div>
+
 ## Registers
 
 ### Slow GPIO Registers
+
 - **Legacy Compatibility**
   - `IOXPIN`: Read/Write pin values.
   - `IOXSET`: Set pins HIGH.
@@ -54,12 +62,15 @@ graph LR
   - `IOXCLR`: Set pins LOW.
 
 #### Example Usage
+
 ```c
 IO0DIR = 0x000000F0; // Configure P0.4-P0.7 as output and P0.0-P0.3 as input
 IO0SET = (1 << 4);   // Set P0.4 HIGH
 IO0CLR = (1 << 4);   // Set P0.4 LOW
 ```
+
 ### Fast GPIO Registers
+
 - **Enhanced Performance** (3.5x faster access via ARM local bus).
   - `FIOXDIR`: Configure pin direction.
   - `FIOXMASK`: Mask pins for fast access.
@@ -68,6 +79,7 @@ IO0CLR = (1 << 4);   // Set P0.4 LOW
   - `FIOXCLR`: Set pins LOW.
 
 #### Why "Fast GPIO"?
+
 - Registers relocated to ARM local bus for quicker access, especially noticeable in assembly code.
 
 ```mermaid
@@ -83,14 +95,14 @@ graph LR
     FastGPIO --> FIOxCLR[FIOxCLR: Set LOW]
 ```
 
-
-<div style="page-break-after: always;"></div>
-
 ## Example: LED Control Using a Button
 
 ### Objective
+
 Control an **LED** connected to `P0.0` using a **button** connected to `P0.1`.
+
 ### Code Explanation
+
 1. **Setup**:
    - Configure `P0.0` as output for LED.
    - Configure `P0.1` as input for button.
@@ -99,6 +111,7 @@ Control an **LED** connected to `P0.0` using a **button** connected to `P0.1`.
    - Turn LED OFF otherwise.
 
 #### Code Example
+
 ```c
 #include <lpc214x.h>
 #include <stdint.h>
@@ -120,6 +133,7 @@ int main(void) {
 ## LCD 16x2 Interfacing with LPC2148
 
 ### What is LCD 16x2?
+
 - A commonly used **display module** in embedded systems.
 - Features:
   - **16 pins** in total:
@@ -131,6 +145,7 @@ int main(void) {
     - Other pins manage **power supply** and **backlighting**.
 
 ### Modes and Configuration
+
 - **Command Mode**:
   - RS = 0, RW = 0: Send configuration commands (e.g., setting display properties).
 - **Data Mode**:
@@ -138,17 +153,21 @@ int main(void) {
 - **Operating Modes**:
   - **4-bit mode**: Uses fewer data lines.
   - **8-bit mode**: Full data communication.
-<div style="page-break-after: always;"></div> 
+
 ### Example Interfacing LCD with LPC2148
+
 #### Pin Connections
+
 - **Data Pins (D0-D7)**: Connected to `P0.8-P0.15` of PORT0.
 - **Control Pins**:
   - **RS**: Connected to `P0.4`.
   - **RW**: Connected to `P0.5`.
   - **EN**: Connected to `P0.6`.
+
 ### LCD Programming
 
 #### 1. Initialization
+
 - Configure GPIO pins for **LCD data and control**.
 - Send initialization commands to the LCD.
 
@@ -165,6 +184,7 @@ void lcd_init(void) {
 ```
 
 #### 2. Command Write Function
+
 - RS = 0, RW = 0: Send configuration commands.
 - Generate enable pulse (high to low).
 
@@ -180,6 +200,7 @@ void lcd_command(char command) {
 ```
 
 #### 3. Data Write Function
+
 - RS = 1, RW = 0: Send data to display characters.
 - Generate enable pulse (high to low).
 
@@ -193,7 +214,3 @@ void lcd_data(char data) {
     delay_ms(5);
 }
 ```
-
-
-
-
