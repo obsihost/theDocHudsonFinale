@@ -20,6 +20,6 @@ title: The Last Race
   - Chapter 1 (لسه قديم)
   - Chapter 2 (لسه قديم)
   - Chapter 3 (لسه قديم)
-  - Chapter 4
+  - [Chapter 4](./RTOS/Ch4.md)
   - Chapter 5
   - Chapter 6
