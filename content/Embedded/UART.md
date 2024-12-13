@@ -191,11 +191,15 @@ The modem interface in UART1 enhances communication between the UART and externa
    - Configure the Divisor Latch Registers (U0DLL and U0DLM) to set the desired baud rate.
    - Using the formula for baud rate calculation:
 
-$$\text{Baud Rate} = \frac{PCLK}{16 \times (256 \times U0DLM + U0DLL)}$$
+$$
+    \text{Baud Rate} = \frac{PCLK}{16 \times (256 \times U0DLM + U0DLL)}
+$$
 
      For PCLK = 15 MHz and baud rate = 9600:
 
-$$9600 = \frac{15000000}{16 \times (256 \times U0DLM + U0DLL)}$$
+$$
+    9600 = \frac{15000000}{16 \times (256 \times U0DLM + U0DLL)}
+$$
 
      Simplifying:
 
