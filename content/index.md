@@ -7,19 +7,13 @@ title: The Last Race
   <p>اللي انا شايفه مجرد كوبايات فاضيه</p>
 </div>
 
-- **Embedded**:
-  - Chapter 1 (لسه قديم)
-  - Chapter 2 (لسه قديم)
-  - Chapter 3 (لسه قديم)
-  - Chapter 4
-    - [GPIO](./Embedded/GPIO.md)
-    - [ADC](./Embedded/ADC.md)
-    - [DAC](./Embedded/DAC.md)
-    - [UART](./Embedded/UART.md)
-- **RTOS**:
-  - Chapter 1 (لسه قديم)
-  - Chapter 2 (لسه قديم)
-  - Chapter 3 (لسه قديم)
-  - [Chapter 4](./RTOS/Ch4.md)
-  - Chapter 5
-  - Chapter 6
+## Available
+
+- ### [[Embedded Systems]]
+- ### [[RTOS]]
+
+## TODO
+
+- ### Network Security
+- ### Ethics
+- ### Machine Learning
