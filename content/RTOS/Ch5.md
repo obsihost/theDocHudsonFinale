@@ -54,6 +54,14 @@ graph TD
 - **Precise Timing Services**:
     - High resolution.
     - Short interrupt disabling periods.
+## Functionality of RTOS Kernel
+- Processor management 
+- Memory management 
+- Timer management resource management 
+- Task management (resume, wait, etc.) 
+- Inter-task communication
+- Task synchronization
+
 ---
 ## FreeRTOS Overview
 - **Purpose**: Multitasking facilities with a simple scheduler.
