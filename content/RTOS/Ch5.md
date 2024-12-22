@@ -61,7 +61,6 @@ graph TD
 - Task management (resume, wait, etc.) 
 - Inter-task communication
 - Task synchronization
-
 ---
 ## FreeRTOS Overview
 - **Purpose**: Multitasking facilities with a simple scheduler.

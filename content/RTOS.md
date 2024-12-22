@@ -2,3 +2,5 @@
 - ### Chapter 2 (قديم)
 - ### Chapter 3 (قديم)
 - ### [Chapter 4](./RTOS/Ch4.md)
+- ### [Chapter 5](./RTOS/Ch5.md)
+- ### [Chapter 6](./RTOS/Ch6.md)

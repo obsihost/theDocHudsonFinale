@@ -30,8 +30,15 @@ The **DACR** is a 32-bit register that allows us to set the digital value and co
 flowchart LR
     DACR["DACR Register (32-bit)"]
 
-    DACR --> BIAS["BIAS\n(Bit 16)\n1 bit\n0: Max 1μs settling\n1: 2.5μs settling\n "]
-    DACR --> VALUE["VALUE\n(Bits 15:6)\n10-bit digital value\nConverted to Analog Voltage"]
+    DACR --> BIAS["BIAS
+    (Bit 16)
+    1 bit
+    0: Max 1μs settling
+    1: 2.5μs settling"]
+    DACR --> VALUE["VALUE
+    (Bits 15:6)
+    10-bit digital value
+    Converted to Analog Voltage"]
 
 ```
 #### How to Use the DACR Register?
