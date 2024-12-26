@@ -151,12 +151,12 @@ Assigning relative values to assets helps prioritize risk management efforts. Ev
 - **Embarrassment or liability** in case of compromise.
 ##### **Sample Classification Table**
 
-|Asset|Classification|Impact|
-|---|---|---|
-|Customer Orders (SSL)|Confidential|Critical|
-|Logistics Documents (EDI)|Confidential|High|
-|Supplier Orders (EDI)|Confidential|Medium|
-|Customer Service Requests (Email)|Private|Medium|
+| Asset                             | Classification | Impact   |
+| --------------------------------- | -------------- | -------- |
+| Customer Orders (SSL)             | Confidential   | Critical |
+| Logistics Documents (EDI)         | Confidential   | High     |
+| Supplier Orders (EDI)             | Confidential   | Medium   |
+| Customer Service Requests (Email) | Private        | Medium   |
 
 #### **Prioritizing Information Assets**
 
