@@ -21,6 +21,7 @@ title: Module 1 زفت
 - **2000 to Present**:
   - The Internet enabled widespread communication among unsecured networks.
   - The emergence of sophisticated cyber threats increased awareness of the need for robust security measures, from individual hackers to government-sponsored attacks.
+- **MULTICS (Multiplexed Information and Computing Service)**: Early researches of computer security centered in it.
 ### Key Milestones in Information Security
 - **1968**: Maurice Wilkes highlights password security concerns.
 - **1970**: RAND Report R-609, authored by Willis H. Ware, addresses security controls for computer systems.

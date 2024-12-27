@@ -8,7 +8,7 @@ Access controls are fundamental mechanisms in information security that govern *
 - **Balancing availability** and preserving the **confidentiality and integrity** of information.
 - Managing the relationship between **subjects** (users or systems) and **objects** (resources).
 - Defining _if, when, where_, and _how_ a subject may access an object.
-## Access Controls
+## Access Controls 
 
 Access controls selectively allow or deny the use of resources. Different types of access controls include:
 ### Categories:
@@ -107,11 +107,11 @@ Firewalls utilize various methods to inspect and manage network traffic, ensurin
 - **Benefits:** Provides deep inspection and caching for performance.
 - **Drawbacks:** May introduce latency and is vulnerable when placed in untrusted zones.
 - **Example:** A proxy server restricting access to certain websites.
-### 3. MAC Layer Firewalls
+### 3. MAC Layer Firewall
 - **Description:** Operate at the data link layer, filtering based on MAC addresses.
 - **Use Case:** Restrict traffic from specific, unauthorized devices.
 - **Example:** Blocking access for devices not registered in an enterprise network.
-### 4. Hybrid Firewalls
+### 4. Hybrid Firewall
 - **Description:** Combines features of multiple firewall types (e.g., stateful inspection + proxy).
 - **Benefits:**
     - Enhanced flexibility.

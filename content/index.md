@@ -17,3 +17,8 @@ title: The Last Race
 
 - ### Ethics
 - ### Machine Learning
+
+<div style="text-align: center;">
+  <img src="graph.png" alt="Legacy" style="width: 60%;"/>
+  <p> </p>
+</div>
