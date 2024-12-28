@@ -420,7 +420,4 @@ graph TD;
 
 - Developed by MasterCard and VISA.
 - Encrypts credit card information during online transactions.
-- Provides:
-    - **Authentication:** Verifies cardholder and merchant identities.
-    - **Integrity:** Ensures data hasn’t been altered.
-    - **Confidentiality:** Encrypts sensitive information.
+
