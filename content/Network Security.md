@@ -1,6 +1,0 @@
-- ### [Module 1 زفت](./Network/mod1.md)
-- ### [Module 2 زفت](./Network/mod2.md)
-- ### [Module 3 زفت](./Network/mod3.md)
-- ### [Module 4 زفت](./Network/mod4.md)
-- ### [Module 5 زفت](./Network/mod5.md)
-- ### [Module 6 زفت](./Network/mod6.md)
