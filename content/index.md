@@ -11,12 +11,15 @@ title: The Last Race
 
 - ### [[Embedded Systems]]
 - ### [[RTOS]]
-- ### [[Network Security]]
 
 ## TODO
 
-- ### Ethics
 - ### Machine Learning
+
+## Finished
+
+- ### Network Security
+- ### Ethics
 
 <div style="text-align: center;">
   <img src="graph.png" alt="Legacy" style="width: 60%;"/>
