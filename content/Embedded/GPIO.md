@@ -214,3 +214,78 @@ void lcd_data(char data) {
     delay_ms(5);
 }
 ```
+
+### Example Interfacing LCD with LPC2148 in 4-bit Mode
+
+#### Pin Connections
+
+- **Data Pins (D4-D7)**: Connected to `P0.8-P0.11` of PORT0.
+- **Control Pins**:
+    - **RS**: Connected to `P0.4`.
+    - **RW**: Connected to `P0.5`.
+    - **EN**: Connected to `P0.6`.
+
+### LCD Programming
+
+#### 1. Initialization
+
+- Configure GPIO pins for **LCD data and control**.
+- Send initialization commands to set up 4-bit mode.
+
+```c
+void lcd_init(void) {
+    IO0DIR = 0x00000FF0;  // Configure P0.8-P0.11 as data lines, P0.4, P0.5, P0.6 as control lines
+    delay_ms(20);         // Wait for LCD to power up
+    lcd_command(0x02);    // Initialize in 4-bit mode
+    lcd_command(0x28);    // 2-line, 4-bit mode, 5x7 font
+    lcd_command(0x0C);    // Display ON, Cursor OFF
+    lcd_command(0x06);    // Auto-increment cursor
+    lcd_command(0x01);    // Clear display
+    lcd_command(0x80);    // Move cursor to first line, first position
+}
+```
+
+#### 2. Command Write Function
+
+- RS = 0, RW = 0: Send configuration commands.
+- Send higher nibble first, then lower nibble.
+- Generate enable pulse (high to low).
+
+```c
+void lcd_command(char command) {
+    IO0PIN = (IO0PIN & 0xFFFFF0FF) | ((command & 0xF0) << 4); // Send higher nibble
+    IO0CLR = 0x00000030;  // RS = 0, RW = 0
+    IO0SET = 0x00000040;  // EN = 1
+    delay_ms(2);
+    IO0CLR = 0x00000040;  // EN = 0
+    
+    IO0PIN = (IO0PIN & 0xFFFFF0FF) | ((command & 0x0F) << 8); // Send lower nibble
+    IO0SET = 0x00000040;  // EN = 1
+    delay_ms(2);
+    IO0CLR = 0x00000040;  // EN = 0
+    delay_ms(5);          // Wait for command execution
+}
+```
+
+#### 3. Data Write Function
+
+- RS = 1, RW = 0: Send data to display characters.
+- Send higher nibble first, then lower nibble.
+- Generate enable pulse (high to low).
+
+```c
+void lcd_data(char data) {
+    IO0PIN = (IO0PIN & 0xFFFFF0FF) | ((data & 0xF0) << 4); // Send higher nibble
+    IO0SET = 0x00000050;  // RS = 1, EN = 1
+    IO0CLR = 0x00000020;  // RW = 0
+    delay_ms(2);
+    IO0CLR = 0x00000040;  // EN = 0
+    
+    IO0PIN = (IO0PIN & 0xFFFFF0FF) | ((data & 0x0F) << 8); // Send lower nibble
+    IO0SET = 0x00000050;  // RS = 1, EN = 1
+    IO0CLR = 0x00000020;  // RW = 0
+    delay_ms(2);
+    IO0CLR = 0x00000040;  // EN = 0
+    delay_ms(5);          // Wait for data execution
+}
+```
