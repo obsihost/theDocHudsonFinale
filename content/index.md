@@ -8,6 +8,11 @@ title: The Last Race
 
 </div>
 
+
+## state machine
+
+- [[State-Machine.canvas|State-Machine]]
+
 ## Available
 
 - ### [[Embedded Systems]]
